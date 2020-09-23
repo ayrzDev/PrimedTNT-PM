@@ -23,7 +23,7 @@ public function BlockPlace(BlockPlaceEvent $event){
     $p = $event->getPlayer();
  
     if($b->getId()===46){
-        $place->setCancelled();
+        $b->setCancelled();
         $rnd = (new Random())->nextSignedFloat() * M_PI * 2;
         $nbt = Entity::createBaseNBT($b, new Vector3(-sin($rnd) * 0.02, 0.2, -cos($rnd) * 0.02));
         $nbt->setShort("Fuse", 90);
