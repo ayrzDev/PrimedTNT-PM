@@ -21,7 +21,6 @@ class Main extends PluginBase implements Listener {
 public function BlockPlace(BlockPlaceEvent $event){
     $b = $event->getBlock();
     $p = $event->getPlayer();
- 
     if($b->getId()===46){
         $event->setCancelled();
         $rnd = (new Random())->nextSignedFloat() * M_PI * 2;
@@ -32,12 +31,7 @@ public function BlockPlace(BlockPlaceEvent $event){
       return true;
     } 
   }
-/* Eğer Bloğu Kırmasını Engellemek İstiyorsan "/ * , * /" silmen gerekli
-public function ExplosionPrimeEvent(ExplosionPrimeEvent $p){
-  $p->setBlockBreaking(false);
-}
-*/
-
+	
   public function onDamage(EntityDamageEvent $event){
     $p = $event->getEntity();
       if($p instanceof Player && $event->getCause() === EntityDamageEvent::CAUSE_ENTITY_EXPLOSION){
@@ -51,4 +45,12 @@ public function ExplosionPrimeEvent(ExplosionPrimeEvent $p){
           }
         }
       }
+	
+	
+/* Eğer Bloğu Kırmasını Engellemek İstiyorsan "/ * , * /" silmen gerekli
+public function ExplosionPrimeEvent(ExplosionPrimeEvent $p){
+  $p->setBlockBreaking(false);
+}
+*/
+	
     }
